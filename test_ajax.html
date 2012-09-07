@@ -1,0 +1,77 @@
+<!DOCTYPE HTML>
+	<html>
+	<head>
+		<title>PhoneGap</title>
+		<script type="text/javascript" charset="utf-8" src="phonegap-0.9.3.js"></script>
+		<link rel="stylesheet" href="jquery.mobile-1.0a1.min.css" /> 
+		<script src="jquery-1.4.3.min.js"></script> 
+		<script src="jquery.mobile-1.0a1.min.js"></script>
+		<script type="text/javascript">
+			$( function()
+			{
+				$('#btn').click(function()
+				{
+					$.ajax(
+					{
+						type		: "POST",
+						data		: "command=get_projects",
+						url			: "http://creaxial.net/fonction.php",
+						success		: function(retour)
+						{
+							alert(retour);
+	
+						}
+					});
+				});
+		
+				//var txt=$('#recherche').val();
+				//alert(txt);
+			
+				document.addEventListener("deviceready", onDeviceReady, false);
+			});
+
+
+			// PhoneGap is loaded and it is now safe to make calls PhoneGap methods
+			//
+			function onDeviceReady() {
+					
+			}
+		</script>  
+	</head>
+<body>
+
+	<div data-role="page" id="home"> 
+		<div data-role="header"> 
+			<h1>Homepage</h1> 
+		</div> 
+	
+		<div data-role="content">
+			<p>CLick on tab</p>
+			<p><a href="#tab1" data-role="button">Tab1</a></p>
+			<p><a href="#tab2" data-role="button">tab2</a></p>    
+		</div> 
+	</div>
+
+	<div data-role="page" id="tab1"> 
+		<div data-role="header"> 
+			<h1>tab1</h1> 
+		</div> 
+	
+		<div data-role="content"> 
+			<p>Hugues rocks! :-)</p> 
+		</div> 
+	</div> 
+	
+	<div data-role="page" id="tab2"> 
+		<div data-role="header"> 
+			<h1>tab2</h1> 
+		</div> 
+	
+		<div data-role="content"> 
+			<input type="text" name="test" id="recherche" value=""/><br/>	
+			<input type="button" name="btn" id="btn" value="alert du champs"/><br/>	
+			<p>formulaire qui tue! :-)</p> 
+		</div> 
+	</div>
+</body>
+</html>
